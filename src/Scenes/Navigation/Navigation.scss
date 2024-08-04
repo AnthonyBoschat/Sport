@@ -6,4 +6,6 @@ div.navigation{
     width: fit-content;
     display: flex;
     gap: 1rem;
+    position: absolute;
+    z-index: 10;
 }
