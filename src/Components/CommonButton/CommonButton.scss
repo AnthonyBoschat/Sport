@@ -1,0 +1,14 @@
+button.headerButton{
+    width: 10rem;
+    height: 2.5rem;
+    color: black;
+    font-size: 1.1rem;
+    background-color: white;
+    border: none;
+    outline: 2px solid black;
+
+    &.selected{
+        background-color: black;
+        color: white;
+    }
+}
