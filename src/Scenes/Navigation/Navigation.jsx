@@ -15,8 +15,6 @@ export default function Navigation(){
             value:"Sport",
             click:() => disaptch(changeRoute("Sport")),
             selected:route === "Sport" ? true : false
-
-
         },
         {
             id:1,

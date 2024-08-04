@@ -8,7 +8,7 @@ export default function CommonButton(props){
 
     return(
         <button 
-            className={`${className} ${selected ? "selected" : ""}`}
+            className={`${className} ${selected ? "selected" : ""} commonButton`}
             onClick={click}
         >
             {value}

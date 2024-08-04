@@ -7,7 +7,11 @@ export const RouteSlice = createSlice({
   },
   reducers: {
     changeRoute:(state,action) => {
-        state.current = action.payload
+        if(state.current === action.payload){
+          state.current = null
+        }else{
+          state.current = action.payload
+        }
     }
   },
 });

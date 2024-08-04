@@ -1,0 +1,24 @@
+div.containerSport{
+    // background-color: rgba(255, 85, 85, 0.11); //
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+
+
+    .containerDay{
+        // background-color: rgba(121, 202, 255, 0.51); //
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .containerExercices{
+        background-color: rgba(0, 128, 0, 0.179); //
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
