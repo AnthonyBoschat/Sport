@@ -4,12 +4,13 @@ import "./Exercice.scss"
 
 export default function Exercice(props){
 
-    const informations = Object.entries(props.informations)
+    const informations = props.informations
 
     const [exerciceOnModification, setExerciceOnModification] = useState(false)
 
     const saveExercice = () => {
         // TODO, sauevgarder l'exercice dans la base de donnée (test)
+        console.log("sauvegarde de l'exercice : ", informations.nom)
     }
 
 
@@ -22,22 +23,46 @@ export default function Exercice(props){
                     class={`fa-solid fa-pen-to-square option ${exerciceOnModification ? "active" : ""}`}
                 ></i>
 
-                <i  onClick={saveExercice(informations)} 
+                <i  onClick={() => saveExercice()} 
                     class="fa-solid fa-floppy-disk option"
                 ></i>
             </div>
 
-            {informations.map(information => (
-                <div key={`${information[0]} ${information[1]}`} className="information">
-                    <div className="name">
-                        {information[0]}
-                    </div>
-                    <input type="text"  className={`value ${exerciceOnModification ? "onModification" : "disabled"}`}
-                        value={information[0] === "Repos" ? formatMinute(information[1])  : information[1]}
-                    />
+            
+            <div className="information">
+                <div className="name">
+                    Nom
                 </div>
+                <input type="text"  className={`value ${exerciceOnModification ? "onModification" : "disabled"}`}
+                    value={informations.nom}
+                />
+            </div>
+            <div className="information">
+                <div className="name">
+                    Séries
+                </div>
+                <input type="text"  className={`value ${exerciceOnModification ? "onModification" : "disabled"}`}
+                    value={informations.series}
+                />
+            </div>
+            <div className="information">
+                <div className="name">
+                    Répétitions
+                </div>
+                <input type="text"  className={`value ${exerciceOnModification ? "onModification" : "disabled"}`}
+                    value={informations.repetitions}
+                />
+            </div>
+            <div className="information">
+                <div className="name">
+                    Repos
+                </div>
+                <input type="text"  className={`value ${exerciceOnModification ? "onModification" : "disabled"}`}
+                    value={formatMinute(informations.repos)}
+                />
+            </div>
                     
-            ))}
+            
             
         </div>
     )

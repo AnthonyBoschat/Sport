@@ -1,14 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./Sport.scss"
 import CommonButton from "../../Components/CommonButton/CommonButton"
 import Exercice from "./Exercice/Exercice"
 import NewExercice from "./newExercice/NewExercice"
+import { useQuery } from "@apollo/client"
+import { GET_ALL_EXERCICES } from "../../Query/Exercices/GetAll"
 
 export default function Sport(){
 
     const [daySelected, setDaySelected] = useState(null)
-
+    const {loading, error, data} = useQuery(GET_ALL_EXERCICES)
     
+    useEffect(() => {
+        console.log("loading", loading)
+        console.log("error", error)
+        console.log("data", data)
+    }, [loading])
 
     const selectDay = (day) => {
         setDaySelected(day === daySelected ? null : day)
@@ -61,27 +68,6 @@ export default function Sport(){
 
 
 
-    const exercices = [
-        {
-            data:{
-                Nom:"Développer coucher",
-                Séries:3,
-                Répétitions:8,
-                Repos:90
-            }
-        },
-        {
-            data:{
-                Nom:"Ecarter haltère",
-                Séries:4,
-                Répétitions:10,
-                Repos:60
-            }
-        },
-    ]
-
-
-
     
 
 
@@ -109,16 +95,18 @@ export default function Sport(){
                         </div>
                         <div className="exerciceList">
 
-                            <NewExercice/>
+                            {/* <NewExercice/> */}
 
 
-                            {/* {exercices.map(exercice => (
-                                <Exercice
-                                    key={exercice.Nom} 
-                                    informations={exercice.data}
-                                    
-                                />
-                            ))} */}
+                            {!loading && (
+                                data.allExercices.map(exercice => (
+                                    <Exercice
+                                        key={exercice.id} 
+                                        informations={exercice}
+                                        
+                                    />
+                                ))
+                            )}
                         </div>
                     </div>
                 )}
