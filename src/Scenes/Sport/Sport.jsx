@@ -2,10 +2,13 @@ import { useState } from "react"
 import "./Sport.scss"
 import CommonButton from "../../Components/CommonButton/CommonButton"
 import Exercice from "./Exercice/Exercice"
+import NewExercice from "./newExercice/NewExercice"
 
 export default function Sport(){
 
     const [daySelected, setDaySelected] = useState(null)
+
+    
 
     const selectDay = (day) => {
         setDaySelected(day === daySelected ? null : day)
@@ -60,20 +63,26 @@ export default function Sport(){
 
     const exercices = [
         {
-            nom:"Développer coucher",
-            series:3,
-            repetition:8,
-            repos:90,
-            details:"Attention à l'inclinaison des coudes lors de l'éxecution"
+            data:{
+                Nom:"Développer coucher",
+                Séries:3,
+                Répétitions:8,
+                Repos:90
+            }
         },
         {
-            nom:"Ecarter haltère",
-            series:4,
-            repetitions:10,
-            repos:60,
-            détails:"Attentionà ne pas remonter jusqu'en haut"
+            data:{
+                Nom:"Ecarter haltère",
+                Séries:4,
+                Répétitions:10,
+                Repos:60
+            }
         },
     ]
+
+
+
+    
 
 
     return(
@@ -99,9 +108,17 @@ export default function Sport(){
                             <button className="add">Ajouter un exercice</button>
                         </div>
                         <div className="exerciceList">
-                            {exercices.map(exercice => (
-                                <Exercice key={exercice.nom} {...exercice}/>
-                            ))}
+
+                            <NewExercice/>
+
+
+                            {/* {exercices.map(exercice => (
+                                <Exercice
+                                    key={exercice.Nom} 
+                                    informations={exercice.data}
+                                    
+                                />
+                            ))} */}
                         </div>
                     </div>
                 )}

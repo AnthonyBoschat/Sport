@@ -1,32 +1,79 @@
 .exercice{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     outline: 2px solid black;
     margin: 2px;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    position: relative;
+
+    .options{
+        // outline: 1px solid black;
+        height: 2rem;
+        display: flex;
+        // padding-left: 1rem;
+        align-items: center;
+        gap: 1rem;
+        align-items: center;
+
+        .option{
+            font-size: 1.3rem;
+            &:hover{
+                cursor: pointer;
+            }
+            &.active{
+                color: rgb(120, 0, 195);
+            }
+        }
+    }
+
     .information{
         display: flex;
         gap: 1rem;
-        pointer-events: none;
 
         .name{
             background-color: black;
             color: white;
             height: 2rem;
             width: 15%;
+            min-width: 15%;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 1.2rem;
+            pointer-events: none;
         }
 
-        .value{
+        input.value{
             height: 2rem;
             display: flex;
             align-items: center;
             font-size: 1.2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border: none;
+        }
+
+        div.value{
+            height: auto;
+            display: flex;
+            align-items: center;
+            padding-top: 0.2rem;
+            font-size: 1.2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            width: 100%;
+        }
+
+        .onModification{
+            pointer-events: all;
+            outline: 1px solid black;
+            box-shadow: 1px 1px 4px black inset;
+        }
+
+        .disabled{
+            pointer-events: none;
         }
     }
 }
